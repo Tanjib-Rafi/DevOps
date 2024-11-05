@@ -25,3 +25,23 @@ Services in Kubernetes manage networking and allow communication between Pods an
 
 - **Ingress**: Manages external access to services, typically HTTP/S, and provides load balancing, SSL termination, and name-based virtual hosting.  
   _Allows you to define rules for routing traffic based on URLs or domain names._
+
+### Port Definitions:
+In a Kubernetes `Service` specification, the following ports can be defined:
+
+- **port**: 
+  - The port that the Service listens on within the cluster.
+  - Used by clients to access the Service.
+
+- **targetPort**: 
+  - The port on the Pod that the Service forwards traffic to.
+  - This is where the actual application listens for requests.
+
+- **nodePort**: 
+  - A specific port that is opened on each Node in the cluster when using `NodePort` service type.
+  - It allows external traffic to access the Service via `<NodeIP>:<NodePort>`.
+  - It is used for development mostly
+
+- **containerPort**: 
+  - The port on which the container itself is listening.
+  - This is defined in the Pod specification, often used for documentation purposes.
