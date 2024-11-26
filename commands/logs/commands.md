@@ -5,6 +5,13 @@
 - ```kubectl describe pod <pod-name>```
 - ```journalctl -u kubelet```
 - ```kubectl top```
+  
+# check the connection between deployment and service
+
 - ```kubectl get pods --show-labels```
+- ```kubectl get pods --selector app=label_name --show-labels```
+- ```kubectl get endpoints service_name```
+- ```kubectl get pods --selector app=label_name --show-labels -o wide```
+- ```kubectl port-forward service/service_name 8080:80```
 
 # debugging tools (kubectl exec, stern)
