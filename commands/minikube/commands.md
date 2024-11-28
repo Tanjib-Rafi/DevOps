@@ -1,4 +1,7 @@
 start minikube:
-- minikube start --nodes=1
+- ```minikube start --nodes=1```
 add node:
-- minikube node add
+- ```minikube node add```
+
+Test Loadbalancer and Nodeport:
+- ```minikube tunnel```
