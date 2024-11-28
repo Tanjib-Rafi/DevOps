@@ -15,6 +15,6 @@
 - ```kubectl port-forward service/service_name 8080:80```
 
 # check ingress logs
-- ```kubectl get pods -n kube-system | grep nginx-ingress```
+- ```kubectl get pods -n ingress-nginx```
 
 # debugging tools (kubectl exec, stern)
