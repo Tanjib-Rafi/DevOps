@@ -37,6 +37,8 @@
 
 ```docker build -t acr_name.azurecr.io/image_name:latest .```
 
+```docker login acr_name.azurecr.io -u 00000000-0000-0000-0000-000000000000 -p <accessToken>```
+
 ```docker push acr_name.azurecr.io/image_name:latest```
 
 ```
