@@ -31,7 +31,7 @@
 ```az aks update --name $AKS_NAME --resource-group $RESOURCE_GROUP --attach-acr $ACR_NAME```
 
 
-### Commands
+### Commands for ACR
 
 ```az acr login --name acr_name```
 
@@ -44,3 +44,10 @@
 ```docker push acr_name.azurecr.io/image_name:latest```
 
 ```az acr repository list --name acr_name --output table```
+
+
+### Commands for AKS
+
+```az aks get-credentials --resource-group <your-resource-group> --name <your-aks-cluster-name>```
+
+
