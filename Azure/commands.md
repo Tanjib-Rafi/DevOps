@@ -20,7 +20,9 @@
 
 ```AKS_NAME=cluster_name```
 
+
 ```RESOURCE_GROUP=<your-resource-group>```
+
 
 ```ACR_NAME=acr_name```
 
