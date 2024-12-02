@@ -41,4 +41,4 @@
 
 ```docker push acr_name.azurecr.io/image_name:latest```
 
-```
+```az acr repository list --name acr_name --output table```
