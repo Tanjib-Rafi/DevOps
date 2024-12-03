@@ -67,3 +67,18 @@
 
 ```kubectl get nodes```
 
+
+### Github Actions
+> A service principal (SP) is essentially an identity used by applications, services, or automation tools (like GitHub Actions) to authenticate and perform actions in Azure. It allows you to control the permissions of the application (e.g., allowing it to deploy to your AKS cluster)
+
+AZURE_TENANT_ID:
+```az account show --query tenantId```
+
+Find the subscription id:
+```az account list --output table```
+
+Create a service principal and get credentials:
+```az ad sp create-for-rbac --name "my-github-action-sp" --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}```
+
+
+
