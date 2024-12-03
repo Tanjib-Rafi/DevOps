@@ -54,8 +54,16 @@
 ### Locally install az bash
 
 ```curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash```
+
+
 ```az login```
+
+
 ```az aks get-credentials --resource-group <resource-group-name> --name <aks-cluster-name>```
+
+
 ```kubectl config current-context```
+
+
 ```kubectl get nodes```
 
