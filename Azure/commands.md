@@ -35,6 +35,8 @@
 
 ```az acr login --name acr_name```
 
+```az account set --subscription "subscription_id"```
+
 ```az acr credential show --name registry_name```
 
 ```docker build -t acr_name.azurecr.io/image_name:latest .```
@@ -51,7 +53,7 @@
 ```az aks get-credentials --resource-group <your-resource-group> --name <your-aks-cluster-name>```
 
 
-### Locally install az bash
+### Locally install az bash | set kubectl config
 
 ```curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash```
 
@@ -79,6 +81,4 @@ Find the subscription id:
 
 Create a service principal and get credentials:
 ```az ad sp create-for-rbac --name "my-github-action-sp" --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}```
-
-
 
