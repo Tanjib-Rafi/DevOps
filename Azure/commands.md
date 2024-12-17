@@ -35,7 +35,11 @@
 
 ```az acr login --name acr_name```
 
-```az account set --subscription "subscription_id"```
+- subscription list
+
+```az account list --output table```
+
+```az account set --subscription subscription_id```
 
 ```az acr credential show --name registry_name```
 
