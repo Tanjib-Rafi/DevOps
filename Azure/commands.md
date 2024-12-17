@@ -35,7 +35,7 @@
 
 ```az acr login --name acr_name```
 
-- subscription list
+> subscription list
 
 ```az account list --output table```
 
@@ -43,7 +43,7 @@
 
 ```az acr credential show --name registry_name```
 
-# login server of acr
+> login server of acr
 
 ```az acr list --output table```
 
@@ -55,6 +55,10 @@
 
 ```az acr repository list --name acr_name --output table```
 
+> ACR Admin Credentials (username and password)
+
+```az acr update --name <acr-name> --admin-enabled true```
+```az acr credential show --name <acr-name> --query "{username:username, password:passwords[0].value}" --output json```
 
 ### Commands for AKS
 
