@@ -55,10 +55,14 @@
 
 ```az acr repository list --name acr_name --output table```
 
+
 > ACR Admin Credentials (username and password)
 
+
 ```az acr update --name <acr-name> --admin-enabled true```
+
 ```az acr credential show --name <acr-name> --query "{username:username, password:passwords[0].value}" --output json```
+
 
 ### Commands for AKS
 
