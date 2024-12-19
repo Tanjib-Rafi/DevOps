@@ -97,4 +97,6 @@ Find the subscription id:
 
 Create a service principal and get credentials:
 ```az ad sp create-for-rbac --name "my-github-action-sp" --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}```
+```az ad sp create-for-rbac --name github-actions-sp --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth```
+
 
