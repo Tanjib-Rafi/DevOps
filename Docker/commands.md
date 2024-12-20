@@ -1,7 +1,9 @@
 > if docker image is private
 
 
-```kubectl create secret docker-registry regcred --docker-username=<dockerhub-username> --docker-password=<dockerhub-password> --docker-email=<your-email> -n <namespace-name>```
+```
+kubectl create secret docker-registry regcred --docker-username=<dockerhub-username> --docker-password=<dockerhub-password> --docker-email=<your-email> -n <namespace-name>
+```
 
 > If you're storing secrets in files, you can create a secret.yml
 
