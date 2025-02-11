@@ -12,7 +12,8 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
 - Add the Prometheus Helm Repo, which includes Prometheus, Alertmanager, and Grafana
 
-```helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 ```
 ```
 helm repo update
