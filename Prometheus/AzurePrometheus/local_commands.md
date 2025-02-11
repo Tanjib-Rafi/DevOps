@@ -1,6 +1,6 @@
 - Retrieve AKS Cluster Credentials for kubectl Access Locally
 
-`az aks get-credentials --resource-group <RESOURCE_GROUP> --name <AKS_CLUSTER_NAME>`
+```az aks get-credentials --resource-group <RESOURCE_GROUP> --name <AKS_CLUSTER_NAME>```
 
 - Install Helm
 
