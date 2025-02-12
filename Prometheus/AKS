@@ -62,4 +62,25 @@ amespace monitoring port-forward $POD_NAME 3000
 kubectl --namespace monitoring port-forward $POD_NAME 3000
 ```
 
+- Add the Loki repository
+
+```
+helm repo add grafana https://grafana.github.io/helm-cha
+```
+```
+helm repo update
+```
+
+- Install the Loki stack
+
+```
+helm install loki-stack grafana/loki-stack --namespace monitoring --create-namespace
+```
+
+- Loki Port Forward
+
+```
+kubectl port-forward svc/loki-stack 3100:3100 -n monitoring
+```
+
 
