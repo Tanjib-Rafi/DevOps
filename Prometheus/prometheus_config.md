@@ -20,3 +20,9 @@ helm upgrade <release-name> prometheus-community/kube-prometheus-stack -f promet
 helm show values prometheus-community/kube-prometheus-stack > default-prometheus-values.yaml
 ```
 
+- Apply changes of values.yml file
+```
+helm upgrade prometheus prometheus-community/kube-prometheus-stack -f prometheus-values.yaml -n monitoring
+```
+
+
