@@ -15,3 +15,8 @@ helm get values <release-name> -n monitoring > prometheus-values.yaml
 helm upgrade <release-name> prometheus-community/kube-prometheus-stack -f prometheus-values.yaml -n monitoring
 ```
 
+- Get the default values of values.yml file of `kube-prometheus-stack`
+```
+helm show values prometheus-community/kube-prometheus-stack > default-prometheus-values.yaml
+```
+
