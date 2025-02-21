@@ -19,3 +19,4 @@ It contains configuration options before they are applied, including service typ
 This is not the live configuration but the default settings that Helm uses.
 ✅ Use when you want to modify Grafana’s settings before deploying or upgrading with Helm.
 
+# If Grafana was installed via Helm, always update values.yaml instead of editing manually.
