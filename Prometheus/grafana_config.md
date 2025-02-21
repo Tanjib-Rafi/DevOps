@@ -18,7 +18,7 @@ If Grafana was installed via Helm, this YAML is not the source code—it’s jus
 helm show values grafana/grafana > values.yaml
 ```
 ```
-helm upgrade --install grafana grafana/grafana -f values.yaml -n monitor
+helm upgrade --install grafana grafana/grafana -f values.yaml -n monitoring
 ```
 
 > This fetches the default Helm values for the Grafana Helm chart before deployment.
