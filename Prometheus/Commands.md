@@ -5,8 +5,14 @@
   
 - ```helm repo update```
 
-  
+
+`Only prometheus`
+
 - ```helm install prometheus prometheus-community/prometheus --namespace monitoring```
+
+`Prometheus, Grafana, Alertmanager, and more```
+
+- ```helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring```
 
 
 ### Locally check prometheus web ui :
