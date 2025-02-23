@@ -10,7 +10,7 @@
 
 - ```helm install prometheus prometheus-community/prometheus --namespace monitoring```
 
-`Prometheus, Grafana, Alertmanager, and more```
+`Prometheus, Grafana, Alertmanager, and more`
 
 - ```helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring```
 
