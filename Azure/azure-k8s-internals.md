@@ -142,6 +142,11 @@ This CIDR block is commonly used for Flannel (a network plugin) and allows the K
 kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 `
 
+- Check Flannel status
+- 
+`kubectl get pods -n kube-flannel -w`
+
+
 # Compare the CA from your kubeconfig with the cluster’s CA
 `diff <(grep certificate-authority-data ~/.kube/config | awk '{print $2}' | base64 -d) /etc/kubernetes/pki/ca.crt`
 
