@@ -73,9 +73,9 @@ The br_netfilter kernel module allows iptables to see bridged traffic, which is 
 
 Without this, your pods may not be able to communicate, and network policies won’t be enforced.
 
-`
+- Load kernel modules for Kubernetes
+
 ```
-# Load kernel modules for Kubernetes
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 br_netfilter
 EOF
