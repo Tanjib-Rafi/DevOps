@@ -45,7 +45,8 @@
    `kubeadm version`
 
 
-1. Container Runtime (containerd or Docker) - Manages actual containers (pods)
+
+1. **Container Runtime** (containerd or Docker) - Manages actual containers (pods)
 Why?
 Kubernetes does not run containers directly-it needs a container runtime (like containerd or Docker) to actually start, stop, and manage containers on each node.
 If the runtime isn’t running or installed, Kubernetes cannot create or manage pods.
@@ -64,7 +65,7 @@ sudo systemctl restart containerd
 sudo systemctl enable containerd
 ```
 
-2. br_netfilter Kernel Module - Enables pod networking and network policies
+2. **br_netfilter Kernel Module** - Enables pod networking and network policies
 Why?
 Kubernetes networking relies on Linux bridges for pod-to-pod communication.
 
@@ -81,7 +82,7 @@ EOF
 sudo modprobe br_netfilter
 ```
 
-3. IP Forwarding - 	Allows network traffic between pods, nodes, and services
+3. **IP Forwarding** - 	Allows network traffic between pods, nodes, and services
 Why?
 Kubernetes needs to route network traffic between pods, services, and external endpoints.
 
@@ -97,7 +98,7 @@ EOF
 sudo sysctl --system
 ```
 
-4. Disabling Swap - Ensures stable, predictable memory for Kubernetes components
+4. **Disabling Swap** - Ensures stable, predictable memory for Kubernetes components
 Why?
 Kubernetes expects nodes to have predictable memory availability.
 
@@ -110,11 +111,19 @@ sudo swapoff -a
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 ```
 
+- After running kubeadm init, only the root user can run kubectl because the kubeconfig lives at /etc/kubernetes/admin.conf.
+
+Running the three commands makes sure your non-root user (the one you're SSHed in as) can control the cluster via kubectl.
+
+`
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+`
 
-sudo crictl config runtime-endpoint unix:///run/containerd/containerd.sock
+# Configure crictl for containerd
+
+`sudo crictl config runtime-endpoint unix:///run/containerd/containerd.sock`
 
 - On the master node, initialize the Kubernetes cluster using kubeadm:
 
