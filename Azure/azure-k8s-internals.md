@@ -1,12 +1,12 @@
-\### 1 master node & 2 worker node
+### 1 master node & 2 worker node
 
-\- master node with public ip , worker node will have private ip
+- master node with public ip , worker node will have private ip
 
     `ssh <your-username>@<vm-public-ip>`
 
-\- On the master node, run the following:
+- On the master node, run the following:
 
-\`
+`
 
 ### Steps to Install `kubeadm` on Ubuntu:
 
@@ -38,12 +38,17 @@
 
    `kubeadm version`
 
+
+` On the master node, initialize the Kubernetes cluster using kubeadm:
+
 `
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 `
 
+`
 Why this specific CIDR (10.244.0.0/16)?
 This CIDR block is commonly used for Flannel (a network plugin) and allows the Kubernetes network to work smoothly with internal IPs for pods. It’s a private network used internally by the cluster.
+`
 
-\`
+`
 
