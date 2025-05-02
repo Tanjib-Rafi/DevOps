@@ -143,7 +143,6 @@ kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Doc
 `
 
 - Check Flannel status
-- 
 `kubectl get pods -n kube-flannel -w`
 
 
