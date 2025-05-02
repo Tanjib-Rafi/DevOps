@@ -16,7 +16,7 @@
 
    `sudo apt install -y apt-transport-https ca-certificates curl`
 
-3.**Create the keyring directory if it doesn't exist
+3. **Create the keyring directory if it doesn't exist
 
     `sudo mkdir -p /etc/apt/keyrings`
 
