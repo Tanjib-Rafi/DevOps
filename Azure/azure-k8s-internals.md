@@ -4,9 +4,7 @@
 
     `ssh <your-username>@<vm-public-ip>`
 
-- On the master node, run the following:
-
-`
+- On the master node, run the following to install packages:
 
 ### Steps to Install `kubeadm` on Ubuntu:
 
