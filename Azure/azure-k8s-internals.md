@@ -116,7 +116,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 sudo crictl config runtime-endpoint unix:///run/containerd/containerd.sock
 
-` On the master node, initialize the Kubernetes cluster using kubeadm:
+- On the master node, initialize the Kubernetes cluster using kubeadm:
 
 `
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
@@ -127,3 +127,16 @@ Why this specific CIDR (10.244.0.0/16)?
 This CIDR block is commonly used for Flannel (a network plugin) and allows the Kubernetes network to work smoothly with internal IPs for pods. It’s a private network used internally by the cluster.
 ```
 
+- Apply Flannel CNI
+
+`
+kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
+`
+
+```
+When you reset or re-initialize your cluster with kubeadm, it generates a new CA and new admin credentials.
+
+If you had an old ~/.kube/config from a previous cluster, it will not match the new CA, causing TLS errors.
+
+Always update your kubeconfig after (re)initializing your cluster.
+```
