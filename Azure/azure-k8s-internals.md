@@ -157,3 +157,8 @@ If you had an old ~/.kube/config from a previous cluster, it will not match the 
 
 Always update your kubeconfig after (re)initializing your cluster.
 ```
+
+# Generates and prints a kubeadm join command, which you can run on a new worker node to join it to your existing Kubernetes cluster.
+`
+kubeadm token create --print-join-command
+`
