@@ -46,7 +46,7 @@
 
 
 
-1. **Container Runtime** (containerd or Docker) - Manages actual containers (pods)
+# **Container Runtime** (containerd or Docker) - Manages actual containers (pods)
 Why?
 Kubernetes does not run containers directly-it needs a container runtime (like containerd or Docker) to actually start, stop, and manage containers on each node.
 If the runtime isn’t running or installed, Kubernetes cannot create or manage pods.
@@ -65,7 +65,7 @@ sudo systemctl restart containerd
 sudo systemctl enable containerd
 ```
 
-2. **br_netfilter Kernel Module** - Enables pod networking and network policies
+# **br_netfilter Kernel Module** - Enables pod networking and network policies
 Why?
 Kubernetes networking relies on Linux bridges for pod-to-pod communication.
 
@@ -82,7 +82,7 @@ EOF
 sudo modprobe br_netfilter
 ```
 
-3. **IP Forwarding** - 	Allows network traffic between pods, nodes, and services
+# **IP Forwarding** - 	Allows network traffic between pods, nodes, and services
 Why?
 Kubernetes needs to route network traffic between pods, services, and external endpoints.
 
@@ -98,7 +98,7 @@ EOF
 sudo sysctl --system
 ```
 
-4. **Disabling Swap** - Ensures stable, predictable memory for Kubernetes components
+# **Disabling Swap** - Ensures stable, predictable memory for Kubernetes components
 Why?
 Kubernetes expects nodes to have predictable memory availability.
 
