@@ -157,6 +157,32 @@ If you had an old ~/.kube/config from a previous cluster, it will not match the 
 Always update your kubeconfig after (re)initializing your cluster.
 ```
 
+
+####
+How to make a public ip master node to private ip?
+
+`
+ip a
+`
+
+`
+sudo nano /etc/kubernetes/manifests/etcd.yaml
+`
+
+`
+sudo nano /etc/kubernetes/manifests/kube-apiserver.yaml
+`
+
+`
+sudo ss -tulnp | grep 2379
+`
+
+`
+sudo ss -tulnp | grep 6443
+`
+
+- Make the vm also private for master node for security
+
 # Generates and prints a kubeadm join command, which you can run on a new worker node to join it to your existing Kubernetes cluster.
 `
 kubeadm token create --print-join-command
