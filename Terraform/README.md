@@ -7,3 +7,11 @@
 | **module**   | Reusable container of Terraform code. Helps organize and reuse infrastructure.                                            |
 | **state**    | Stores the current status of your infrastructure (in `.tfstate` file). Terraform uses this to track real-world resources. |
 
+
+
+| Command             | Description                                                                     |
+| ------------------- | ------------------------------------------------------------------------------- |
+| `terraform init`    | Initializes the working directory. Downloads provider plugins. Run this first.  |
+| `terraform plan`    | Shows what Terraform **will do** (add/change/destroy) before applying. Dry run. |
+| `terraform apply`   | Executes the plan and actually creates/changes resources.                       |
+| `terraform destroy` | Destroys all resources managed by Terraform. Use with caution!                  |
