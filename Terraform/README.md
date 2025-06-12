@@ -15,3 +15,16 @@
 | `terraform plan`    | Shows what Terraform **will do** (add/change/destroy) before applying. Dry run. |
 | `terraform apply`   | Executes the plan and actually creates/changes resources.                       |
 | `terraform destroy` | Destroys all resources managed by Terraform. Use with caution!                  |
+
+
+| File Name           | Purpose                                      | Description                                                                 | Example                                                                 |
+|---------------------|----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| `variables.tf`      | Declare input variables                      | Defines variable names, types, defaults, and descriptions                  | ```hcl<br>variable "region" {<br>  type = string<br>  default = "us-east-1"<br>}``` |
+| `terraform.tfvars`  | Provide values for declared input variables  | Supplies actual values for use during `terraform plan`/`apply`             | ```hcl<br>region = "ap-south-1"<br>```                                  |
+
+### 🔄 Relationship:
+- `variables.tf` is like a form definition.
+- `terraform.tfvars` is the filled-out form with values.
+
+### 📌 Best Practice:
+- Add `.tfvars` to `.gitignore` if it contains secrets or env-specific data.
