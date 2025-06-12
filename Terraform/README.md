@@ -17,6 +17,7 @@
 | `terraform destroy` | Destroys all resources managed by Terraform. Use with caution!                  |
 
 
+
 | File Name           | Purpose                                      | Description                                                                 | Example                                                                 |
 |---------------------|----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------|
 | `variables.tf`      | Declare input variables                      | Defines variable names, types, defaults, and descriptions                  | ```hcl<br>variable "region" {<br>  type = string<br>  default = "us-east-1"<br>}``` |
@@ -28,3 +29,32 @@
 
 ### 📌 Best Practice:
 - Add `.tfvars` to `.gitignore` if it contains secrets or env-specific data.
+
+
+
+## 🪣 Store Terraform State Remotely (Production Ready)
+
+### Why?
+- Prevents conflicts when multiple people run Terraform
+- Enables collaboration, locking, and versioning
+- Keeps state file safe
+
+---
+
+### 🔧 Recommended Backend
+
+**Use Terraform Cloud** *or* **S3 + DynamoDB** (for AWS users)
+
+---
+
+### ✅ Example: S3 + DynamoDB Backend
+
+```hcl
+terraform {
+  backend "s3" {
+    bucket         = "my-terraform-states"
+    key            = "prod/app/terraform.tfstate"
+    region         = "ap-south-1"
+    dynamodb_table = "terraform-locks"
+  }
+}
