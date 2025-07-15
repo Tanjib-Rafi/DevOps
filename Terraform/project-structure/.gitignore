@@ -1,3 +1,26 @@
+# === Terraform files ===
+.terraform/             # Plugin & module cache
+.terraform.lock.hcl     # Optional (lock file), commit if version stability needed
+terraform.tfstate       # Sensitive state
+terraform.tfstate.backup
 *.tfstate
-*.tfvars
-.terraform/
+*.tfstate.*
+
+# === Sensitive files ===
+*.tfvars                # Often contains secrets (use tfvars.example instead)
+*.tfvars.json
+
+# === Environment files ===
+.env
+.env.*
+
+# === IDE / OS ===
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# === Logs & outputs ===
+*.log
+*.out
+crash.log
