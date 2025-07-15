@@ -18,10 +18,29 @@
 
 
 
-| File Name           | Purpose                                      | Description                                                                 | Example                                                                 |
-|---------------------|----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| `variables.tf`      | Declare input variables                      | Defines variable names, types, defaults, and descriptions                  | ```hcl<br>variable "region" {<br>  type = string<br>  default = "us-east-1"<br>}``` |
-| `terraform.tfvars`  | Provide values for declared input variables  | Supplies actual values for use during `terraform plan`/`apply`             | ```hcl<br>region = "ap-south-1"<br>```                                  |
+## 📁 Terraform File Reference Guide
+
+| File Name                 | Purpose                                        | Description                                                                                 | Example                                                                                         |
+|---------------------------|------------------------------------------------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| `main.tf`                 | Main configuration                             | Declares resources (e.g., AWS EC2, VPC), modules, locals, and data sources                 | ```hcl<br>resource "aws_instance" "web" {<br>  ami = var.ami_id<br>  instance_type = "t3.micro"<br>}``` |
+| `variables.tf`            | Declare input variables                        | Defines variable names, types, defaults, and descriptions                                  | ```hcl<br>variable "region" {<br>  type = string<br>  default = "us-east-1"<br>}```              |
+| `terraform.tfvars`        | Provide values for input variables             | Supplies actual values used in `plan`/`apply`, especially per environment                  | ```hcl<br>region = "ap-south-1"<br>instance_type = "t3.micro"<br>```                             |
+| `outputs.tf`              | Export values from the config                  | Allows Terraform to display or pass important outputs like IPs, URLs, ARNs                 | ```hcl<br>output "alb_dns" {<br>  value = aws_lb.main.dns_name<br>}```                           |
+| `backend.tf`              | Remote state configuration                     | Specifies S3/DynamoDB or other backend to store state safely in teams                      | ```hcl<br>terraform {<br>  backend "s3" {<br>    bucket = "my-tfstate"<br>    key = "prod.tfstate"<br>  }<br>}``` |
+| `provider.tf`             | Configure provider plugins                     | Defines cloud providers (e.g., AWS, Azure, GCP) with region, profile, etc.                 | ```hcl<br>provider "aws" {<br>  region = var.region<br>}```                                     |
+| `versions.tf`             | Lock required Terraform and provider versions | Ensures consistent versions across teams/CI                                                | ```hcl<br>terraform {<br>  required_version = ">= 1.4.0"<br>}```                                 |
+| `terraform.lock.hcl`      | Lock provider versions                         | Auto-generated; locks exact versions of providers for reproducibility                      | ```hcl<br>provider "registry.terraform.io/hashicorp/aws" {<br>  version = "5.38.0"<br>}```       |
+| `.terraform/`             | Local cache of providers/modules               | Internal directory created by `terraform init`; should be in `.gitignore`                  | *Do not edit manually*                                                                          |
+| `terraform.tfstate`       | Stores real-world infrastructure state        | Contains actual resource IDs, IPs, metadata — DO NOT COMMIT                                | *Sensitive file; use remote state in prod*                                                      |
+| `terraform.tfstate.backup`| Auto-created backup of last state             | Helps recover if the main state is corrupted or deleted                                    | *Used internally*                                                                               |
+
+---
+
+### ✅ Recommended to Commit:
+- `*.tf`, `terraform.tfvars.example`, `.terraform.lock.hcl`
+
+### 🚫 Never Commit:
+- `terraform.tfstate`, `*.tfvars`, `.terraform/`
 
 ### 🔄 Relationship:
 - `variables.tf` is like a form definition.
