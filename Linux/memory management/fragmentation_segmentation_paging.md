@@ -1,0 +1,3 @@
+- **Paging** breaks memory into fixed-size blocks to map virtual memory to physical memory efficiently.
+- **Segmentation** divides memory into variable-sized logical segments like code, data, and stack for protection.
+- **Fragmentation** is wasted memory space caused by gaps between allocated blocks (external) or unused space inside blocks (internal).
