@@ -64,3 +64,30 @@ A UDP datagram is simpler:
 | Order tracking | Yes                                      | No                                   |
 | Overhead       | Higher                                   | Lower                                |
 | Payload size   | Slightly less than UDP (due to bigger header) | More usable space for small packets |
+
+
+# Why DNS Uses UDP (and TCP Fallback)
+
+## 1. Why DNS Uses UDP (Default)
+
+DNS mostly uses **UDP** because it is **faster and lighter**:
+
+1. **Low overhead & speed** – UDP has an 8-byte header vs TCP’s 20–60 bytes, and no handshake.  
+2. **Small messages** – Most DNS queries and responses are tiny (well under 512 bytes in the original DNS spec, now larger with EDNS0).  
+3. **Connectionless** – No need to establish or tear down a connection; the resolver just sends a query and gets a response.  
+4. **High volume** – DNS servers handle millions of small requests per second, so avoiding TCP handshake overhead improves performance.
+
+---
+
+## 2. When DNS Uses TCP
+
+DNS switches to **TCP** in certain cases:
+
+| Scenario                    | Reason TCP is Needed |
+|------------------------------|--------------------|
+| **Large responses**          | If the DNS response is too big for one UDP packet (e.g., many DNS records, DNSSEC data). |
+| **Zone transfers (AXFR/IXFR)** | Authoritative servers transfer entire DNS zone files — large and require reliable, ordered delivery. |
+| **Truncated UDP response**   | If the server sets the “TC” (Truncated) bit in the UDP reply, the client retries the query over TCP. |
+| **DNS over TLS/HTTPS (DoT/DoH)** | Secure DNS uses TCP because encryption requires a stream-oriented connection. |
+
+---
